@@ -13,14 +13,7 @@ public class LockerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("up"))
-        {
-            print("up arrow key is held down");
-        }
 
-        if (Input.GetKey("down"))
-        {
-            print("down arrow key is held down");
-        }
+
     }
 }

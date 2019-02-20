@@ -13,6 +13,17 @@ public class UseScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        { // if left button pressed...
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                Debug.Log("zizi");
+                Debug.Log(hit.transform.gameObject);
+                // the object identified by hit.transform was clicked
+                // do whatever you want
+            }
+        }
     }
 }
