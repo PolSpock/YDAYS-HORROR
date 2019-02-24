@@ -17,12 +17,15 @@ public class UseScript : MonoBehaviour
         { // if left button pressed...
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit, 1f))
             {
-                Debug.Log("zizi");
+                Debug.Log("touché");
                 Debug.Log(hit.transform.gameObject);
-                // the object identified by hit.transform was clicked
-                // do whatever you want
+
+               if (hit.transform.tag == "bedInteraction")
+               {
+                    Debug.Log("Je suis bedInteraction");
+               }
             }
         }
     }
