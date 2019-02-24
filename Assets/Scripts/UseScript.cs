@@ -26,6 +26,11 @@ public class UseScript : MonoBehaviour
                {
                     Debug.Log("Je suis bedInteraction");
                }
+
+                if (hit.transform.tag == "lockerInteraction")
+                {
+                    Debug.Log("Je suis lockerInteraction");
+                }
             }
         }
     }
