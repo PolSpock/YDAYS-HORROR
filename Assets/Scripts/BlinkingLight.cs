@@ -15,7 +15,6 @@ public class BlinkingLight : MonoBehaviour
 
     public IEnumerator flashNow()
     {
-        Debug.Log("flash");
         float waitTime = totalSeconds / 2;
         // Get half of the seconds (One half to get brighter and one to get darker)
         while (myLight.intensity < maxIntensity)
