@@ -53,7 +53,7 @@ public class BoutonLockerScript : MonoBehaviour
     private void Press(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
     {
         Debug.Log("Pressed");
-        Debug.Log(fromAction);
+        Debug.Log(fromAction.state);
         Debug.Log(fromSource);
         hasClicked = true;
 
