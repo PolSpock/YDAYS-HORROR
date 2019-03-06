@@ -9,10 +9,20 @@ public class UseScript : MonoBehaviour
     public ShowTextScript textDisplayingScript;
     public ScreamerScript screamerScript;
 
+    public GameObject bouton1;
+    public GameObject bouton2;
+    public GameObject bouton3;
+
     // Start is called before the first frame update
     void Start()
     {
         textDisplayingScript.DisplayTextHereFor("Bon...j’aimerai voir son visage une dernière fois, elle doit être sous ces draps...", 10, 50, 10);
+
+        //bouton2.SetActive(false);
+        bouton2.GetComponent<MeshRenderer>().enabled = false;
+
+        //bouton3.SetActive(false);
+        bouton3.GetComponent<MeshRenderer>().enabled = false;
     }
 
     // Update is called once per frame
@@ -73,16 +83,23 @@ public class UseScript : MonoBehaviour
             if (hit.transform.tag == "bouton1")
             {
                 Debug.Log("Je suis bouton1");
-                hit.transform.gameObject.SetActive(false);
-                GameObject activeB2 = GameObject.FindWithTag("bouton2");
-                activeB2.SetActive(true);
+                //hit.transform.gameObject.SetActive(false);
+                //bouton1.SetActive(false);
+                bouton1.GetComponent<MeshRenderer>().enabled = false;
+
+                //bouton2.SetActive(true);
+                bouton2.GetComponent<MeshRenderer>().enabled = true;
+
             }
             else if (hit.transform.tag == "bouton2")
             {
                 Debug.Log("Je suis bouton2");
-                hit.transform.gameObject.SetActive(false);
-                GameObject activeB3 = GameObject.FindWithTag("bouton3");
-                activeB3.SetActive(true);
+                //hit.transform.gameObject.SetActive(false);
+                //bouton2.SetActive(false);
+                bouton2.GetComponent<MeshRenderer>().enabled = false;
+
+                //bouton3.SetActive(true);
+                bouton3.GetComponent<MeshRenderer>().enabled = true;
             }
         }
     }
