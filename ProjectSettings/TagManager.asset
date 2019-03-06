@@ -8,6 +8,11 @@ TagManager:
   - BulletSpawn
   - bedInteraction
   - lockerInteraction
+  - projectile
+  - FxTemporaire
+  - bouton1
+  - bouton2
+  - bouton3
   layers:
   - Default
   - TransparentFX

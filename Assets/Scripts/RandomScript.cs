@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class random : MonoBehaviour
+public class RandomScript : MonoBehaviour
 {
 
     
@@ -15,7 +15,7 @@ public class random : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) || GrabGrip(0))
+        if (Input.GetMouseButtonDown(0))
         { // if left button pressed...
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
