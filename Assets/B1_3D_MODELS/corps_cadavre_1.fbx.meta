@@ -1,16 +1,48 @@
 fileFormatVersion: 2
-guid: 08327146a309fcf4a88f68fd96412ebe
+guid: 496a9340cfa414d47b47e955f7ef4493
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: chariot
+    100000: Corp_cadavre_1
     100002: //RootNode
-    400000: chariot
+    100004: geo_group
+    100006: polySurface1
+    100008: polySurface16
+    100010: polySurface17
+    100012: polySurface21
+    100014: polySurface26
+    100016: polySurface26 1
+    100018: transform10
+    100020: transform11
+    100022: transform12
+    100024: transform6
+    100026: transform7
+    100028: transform8
+    100030: transform9
+    100032: Zombie:Zombie
+    400000: Corp_cadavre_1
     400002: //RootNode
-    2100000: chariotMat
-    2300000: chariot
-    3300000: chariot
-    4300000: chariot
+    400004: geo_group
+    400006: polySurface1
+    400008: polySurface16
+    400010: polySurface17
+    400012: polySurface21
+    400014: polySurface26
+    400016: polySurface26 1
+    400018: transform10
+    400020: transform11
+    400022: transform12
+    400024: transform6
+    400026: transform7
+    400028: transform8
+    400030: transform9
+    400032: Zombie:Zombie
+    2100000: Zombie_zombie__jiangshiBody1
+    2100002: Zombie_zombie__jiangshiBottom1
+    2100004: Zombie_zombie__jiangshiTop1
+    2300000: Corp_cadavre_1
+    3300000: Corp_cadavre_1
+    4300000: Corp_cadavre_1
   externalObjects: {}
   materials:
     importMaterials: 1
