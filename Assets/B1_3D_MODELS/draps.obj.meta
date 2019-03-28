@@ -11,7 +11,12 @@ ModelImporter:
     2300000: Draps1
     3300000: Draps1
     4300000: Draps1
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Draps1Mat
+    second: {fileID: 2100000, guid: 57c8d5dc0c723f241be82278483aa9d6, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
