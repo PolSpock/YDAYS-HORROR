@@ -34,6 +34,12 @@ public class BoutonLockerScript : MonoBehaviour
     void OnTriggerEnter(Collider col)
     {
         Debug.Log("Switch Trigger");
+
+        if (hasClicked)
+        {
+            GetComponent<MeshRenderer>().enabled = false;
+            bouton2.GetComponent<MeshRenderer>().enabled = true;
+        }
     }
 
 
@@ -47,7 +53,7 @@ public class BoutonLockerScript : MonoBehaviour
 
     private void OnDisable()
     {
-        TriggerClick.RemoveOnStateDownListener(Press, inputSource);
+        TriggerClick.RemoveOnStateDownListener(Unpress, inputSource);
     }
 
     private void Press(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
@@ -56,6 +62,16 @@ public class BoutonLockerScript : MonoBehaviour
         Debug.Log(fromAction.state);
         Debug.Log(fromSource);
         hasClicked = true;
+
+        Debug.Log("----- end -----");
+    }
+
+    private void Unpress(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
+    {
+        Debug.Log("Unpressed");
+        Debug.Log(fromAction.state);
+        Debug.Log(fromSource);
+        hasClicked = false;
 
         Debug.Log("----- end -----");
     }
