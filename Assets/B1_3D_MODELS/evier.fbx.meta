@@ -1,17 +1,32 @@
 fileFormatVersion: 2
-guid: 865648e9af7d94a4f8d000a915aad02c
+guid: 2dadaaf8d97caa747b44424def6e7568
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: tablette
-    100002: //RootNode
-    400000: tablette
-    400002: //RootNode
-    2100000: tabletteMat
-    2300000: tablette
-    3300000: tablette
-    4300000: tablette
-  externalObjects: {}
+    100000: //RootNode
+    400000: //RootNode
+    2100000: fer_02
+    2100002: plastique
+    2100004: lambert1
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: table_T1
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: fer_02
+    second: {fileID: 2100000, guid: a79e4623d5c67764ba009749dc347a08, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: a79e4623d5c67764ba009749dc347a08, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plastique
+    second: {fileID: 2100004, guid: 185444846eb8b6f4fb48f2bab78fc268, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
