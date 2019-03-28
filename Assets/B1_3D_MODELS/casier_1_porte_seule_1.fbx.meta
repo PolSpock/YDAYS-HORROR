@@ -1,21 +1,77 @@
 fileFormatVersion: 2
-guid: 4f2ddf156ae88cc4aaad90800a69f07c
+guid: 53b0a08bdac92254e8cae031176df5c1
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: tool_tray
-    100002: //RootNode
-    400000: tool_tray
-    400002: //RootNode
-    2100000: tool_trayMat
-    2300000: tool_tray
-    3300000: tool_tray
-    4300000: tool_tray
+    100000: casier:attache_de_porte_01
+    100002: casier:casier:casier:casier:charniere_1
+    100004: casier:casier:charniere_1
+    100006: casier:casier:charniere_2
+    100008: casier:casier:charniere_3
+    100010: casier:casier:transform1
+    100012: casier:casier:transform2
+    100014: casier:charniere_1
+    100016: casier:charniere_2
+    100018: casier:porte_casier_01
+    100020: //RootNode
+    100022: charniere_1
+    100024: charniere_2
+    100026: partie_mouvante_porte_1
+    100028: porte_1
+    100030: porte_charniere_poignee_bouge_pas
+    100032: transform1
+    100034: transform2
+    100036: transform3
+    100038: transform4
+    100040: transform5
+    400000: casier:attache_de_porte_01
+    400002: casier:casier:casier:casier:charniere_1
+    400004: casier:casier:charniere_1
+    400006: casier:casier:charniere_2
+    400008: casier:casier:charniere_3
+    400010: casier:casier:transform1
+    400012: casier:casier:transform2
+    400014: casier:charniere_1
+    400016: casier:charniere_2
+    400018: casier:porte_casier_01
+    400020: //RootNode
+    400022: charniere_1
+    400024: charniere_2
+    400026: partie_mouvante_porte_1
+    400028: porte_1
+    400030: porte_charniere_poignee_bouge_pas
+    400032: transform1
+    400034: transform2
+    400036: transform3
+    400038: transform4
+    400040: transform5
+    2100000: iron_1
+    2100002: lambert1
+    2300000: casier:casier:charniere_1
+    2300002: casier:charniere_1
+    2300004: charniere_1
+    2300006: partie_mouvante_porte_1
+    3300000: casier:casier:charniere_1
+    3300002: casier:charniere_1
+    3300004: charniere_1
+    3300006: partie_mouvante_porte_1
+    4300000: casier:charniere_1
+    4300002: charniere_1
+    4300004: partie_mouvante_porte_1
+    4300006: casier:casier:charniere_1
+    7400000: Take 001
+    9500000: //RootNode
+    11100000: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: tool_trayMat
+      name: iron_1
+    second: {fileID: 2100000, guid: a79e4623d5c67764ba009749dc347a08, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
     second: {fileID: 2100000, guid: a79e4623d5c67764ba009749dc347a08, type: 2}
   materials:
     importMaterials: 1
@@ -68,8 +124,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -96,7 +152,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 1
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
