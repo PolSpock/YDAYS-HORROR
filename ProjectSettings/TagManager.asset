@@ -13,6 +13,7 @@ TagManager:
   - bouton1
   - bouton2
   - bouton3
+  - drap_face_enabled
   layers:
   - Default
   - TransparentFX
