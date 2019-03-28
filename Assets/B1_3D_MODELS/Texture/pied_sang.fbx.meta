@@ -1,17 +1,22 @@
 fileFormatVersion: 2
-guid: a362579ec1c01db439414b1f363a4c0a
+guid: d6710b4bc50e8bf458b44919fbbb26f5
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: plan_de_travail
-    100002: //RootNode
-    400000: plan_de_travail
-    400002: //RootNode
-    2100000: plan_de_travailMat
-    2300000: plan_de_travail
-    3300000: plan_de_travail
-    4300000: plan_de_travail
-    11100000: //RootNode
+    100000: pasted__pied01
+    100002: pasted__pied02
+    100004: //RootNode
+    400000: pasted__pied01
+    400002: pasted__pied02
+    400004: //RootNode
+    2100000: pasted__lambert8
+    2100002: pasted__lambert9
+    2300000: pasted__pied01
+    2300002: pasted__pied02
+    3300000: pasted__pied01
+    3300002: pasted__pied02
+    4300000: pasted__pied01
+    4300002: pasted__pied02
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -92,7 +97,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 1
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

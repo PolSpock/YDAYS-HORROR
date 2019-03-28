@@ -1,18 +1,33 @@
 fileFormatVersion: 2
-guid: a362579ec1c01db439414b1f363a4c0a
+guid: ddd89a205c254e84e8cdd1f559856674
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: plan_de_travail
-    100002: //RootNode
-    400000: plan_de_travail
-    400002: //RootNode
-    2100000: plan_de_travailMat
-    2300000: plan_de_travail
-    3300000: plan_de_travail
-    4300000: plan_de_travail
-    11100000: //RootNode
-  externalObjects: {}
+    100000: //RootNode
+    100002: pasted__pied01
+    100004: pasted__pied02
+    400000: //RootNode
+    400002: pasted__pied01
+    400004: pasted__pied02
+    2100000: pasted__lambert8
+    2100002: pasted__lambert9
+    2300000: pasted__pied01
+    2300002: pasted__pied02
+    3300000: pasted__pied01
+    3300002: pasted__pied02
+    4300000: pasted__pied01
+    4300002: pasted__pied02
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pied
+    second: {fileID: 2800000, guid: d4b62c387cfe8234695a430db2e03a83, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pied02
+    second: {fileID: 2800000, guid: a7cda438d8d2a83499803c44854e48ed, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
@@ -92,7 +107,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 1
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
