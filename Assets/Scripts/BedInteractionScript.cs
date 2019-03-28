@@ -6,12 +6,13 @@ using Valve.VR;
 public class BedInteractionScript : MonoBehaviour
 {
     private bool hasClicked = false;
+    public GameObject drap_closed;
+    public GameObject drap_opened;
 
     // Start is called before the first frame update
     void Start()
     {
-        GameObject drapFace = GameObject.FindGameObjectWithTag("drap_face_enabled");
-        drapFace.GetComponent<MeshRenderer>().enabled = false;
+        drap_opened.GetComponent<MeshRenderer>().enabled = false;
     }
 
     // Update is called once per frame
@@ -29,10 +30,9 @@ public class BedInteractionScript : MonoBehaviour
     {
         Debug.Log("Switch Trigger");
 
-        GameObject drapFace = GameObject.FindGameObjectWithTag("drap_face_enabled");
-        drapFace.GetComponent<MeshRenderer>().enabled = true;
+        drap_opened.GetComponent<MeshRenderer>().enabled = true;
 
-        GetComponent<MeshRenderer>().enabled = false;
+        drap_closed.GetComponent<MeshRenderer>().enabled = false;
     }
 
 
