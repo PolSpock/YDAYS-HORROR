@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Valve.VR;
 
 public class BedInteractionScript : MonoBehaviour
@@ -10,6 +11,8 @@ public class BedInteractionScript : MonoBehaviour
     public GameObject drap_opened;
     public SteamVR_Action_Boolean TriggerClick;
     private SteamVR_Input_Sources inputSource;
+
+    public Text canvasText;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +38,10 @@ public class BedInteractionScript : MonoBehaviour
         drap_opened.GetComponent<MeshRenderer>().enabled = true;
 
         drap_closed.GetComponent<MeshRenderer>().enabled = false;
+
+
+        canvasText.text = "Elle doit surement être dans les casiers, la dernière fois elle l’a sortie du n°9...";
+        
     }
 
 

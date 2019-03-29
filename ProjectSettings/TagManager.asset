@@ -14,6 +14,7 @@ TagManager:
   - bouton2
   - bouton3
   - drap_face_enabled
+  - canvas_text
   layers:
   - Default
   - TransparentFX
