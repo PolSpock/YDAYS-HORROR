@@ -37,7 +37,17 @@ public class startGirl : MonoBehaviour
     {
         Debug.Log("Switch Trigger");
 
-       start.GetComponent<MeshRenderer>().enabled = true;
+        if (hasClicked)
+        {
+            members = GameObject.FindGameObjectsWithTag("petit_fille_members");
+            foreach (GameObject member in members)
+            {
+                member.GetComponent<SkinnedMeshRenderer>().enabled = true;
+            }
+
+            start.GetComponent<walk>().isEnabled = true;
+        }
+
 
     }
 
