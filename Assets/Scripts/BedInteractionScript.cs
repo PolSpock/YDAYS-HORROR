@@ -8,6 +8,8 @@ public class BedInteractionScript : MonoBehaviour
     private bool hasClicked = false;
     public GameObject drap_closed;
     public GameObject drap_opened;
+    public SteamVR_Action_Boolean TriggerClick;
+    private SteamVR_Input_Sources inputSource;
 
     // Start is called before the first frame update
     void Start()
@@ -36,8 +38,6 @@ public class BedInteractionScript : MonoBehaviour
     }
 
 
-    public SteamVR_Action_Boolean TriggerClick;
-    private SteamVR_Input_Sources inputSource;
 
     private void OnEnable()
     {
