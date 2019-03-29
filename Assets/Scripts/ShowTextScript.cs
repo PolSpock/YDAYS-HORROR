@@ -10,7 +10,7 @@ public class ShowTextScript : MonoBehaviour
 
     //When true, text is displayed each frame, when off it iss't displayed
     private bool displaying;
-
+    
     //This text style can can be easily changed in the inspector
     public GUIStyle myStyle;
 
