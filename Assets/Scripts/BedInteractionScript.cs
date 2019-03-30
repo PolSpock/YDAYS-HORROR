@@ -12,6 +12,8 @@ public class BedInteractionScript : MonoBehaviour
     public SteamVR_Action_Boolean TriggerClick;
     private SteamVR_Input_Sources inputSource;
 
+    public AudioSource battementCoeur;
+
     public Text canvasText;
 
     // Start is called before the first frame update
@@ -40,8 +42,11 @@ public class BedInteractionScript : MonoBehaviour
         drap_closed.GetComponent<MeshRenderer>().enabled = false;
 
 
+
         canvasText.text = "Elle doit surement être dans les casiers, la dernière fois elle l’a sortie du n°9...";
-        
+
+        battementCoeur.loop = true;
+        battementCoeur.Play();
     }
 
 

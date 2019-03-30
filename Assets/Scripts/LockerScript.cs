@@ -23,7 +23,6 @@ public class LockerScript : MonoBehaviour
 
     }
 
-
     void OnCollisionEnter(Collision col)
     {
         Debug.Log("Switch Collision");
@@ -35,13 +34,38 @@ public class LockerScript : MonoBehaviour
 
         if (hasClicked)
         {
-            locker.GetComponent<Animation>().Play("Take 001");
+            Animation animation = locker.GetComponent<Animation>();
+            animation["Take 001"].speed = 2f;
+            animation.Play("Take 001");
+
+            AudioSource audioSource = locker.GetComponent<AudioSource>();
+            audioSource.Play();
+
+            // On retire les poignées & chiffres de tous les autres objets
+            GameObject[] lockersNumber = GameObject.FindGameObjectsWithTag("locker_number");
+
+            foreach(GameObject lockerNumber in lockersNumber)
+            {
+                lockerNumber.GetComponent<MeshRenderer>().enabled = false;
+            }
+
+            StartCoroutine(NextPhase());
+
+            // On déssaffiche la poignée après 2s
+            GameObject firstHandler = GameObject.FindGameObjectWithTag("first_handler");
+            firstHandler.GetComponent<MeshRenderer>().enabled = false;
+
         }
     }
 
+    IEnumerator NextPhase()
+    {
+        print(Time.time);
+        yield return new WaitForSeconds(2);
+        print(Time.time);
+    }
 
-
-    private void OnEnable()
+private void OnEnable()
     {
         TriggerClick.AddOnStateDownListener(Press, inputSource);
     }
