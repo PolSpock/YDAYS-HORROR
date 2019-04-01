@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class OpenAnimationScript : MonoBehaviour
+public class SecondOpenAnimationScript : MonoBehaviour
 {
 
     public Light mainLight;
 
     // Locker 6 objets
-    public GameObject numberNine_Locker6;
-    public GameObject handler_Locker6;
+    public GameObject numberNine_Locker3;
+    public GameObject handler_Locker3;
 
     private AudioSource source;
     public AudioClip[] clips;
@@ -36,6 +36,8 @@ public class OpenAnimationScript : MonoBehaviour
     // L'animation d'ouverture est terminée
     public void PrintEvent()
     {
+        Debug.Log("Second Open Animation");
+
         // On lance le son sourd
         AudioClip clip = clips.FirstOrDefault(c => c.name == "bruitSourd");
         source.clip = clip;
@@ -57,10 +59,10 @@ public class OpenAnimationScript : MonoBehaviour
         source.Play();
 
         // On active le chiffre 9 sur l'autre casier
-        numberNine_Locker6.GetComponent<MeshRenderer>().enabled = true;
+        numberNine_Locker3.GetComponent<MeshRenderer>().enabled = true;
 
         // On active les intéractions de l'autre casier
-        handler_Locker6.GetComponent<SecondLockerScript>().activate = true;
+        handler_Locker3.GetComponent<ThirdLockerScript>().activate = true;
     }
 
     IEnumerator NextPhase()

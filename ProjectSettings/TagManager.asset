@@ -17,6 +17,8 @@ TagManager:
   - canvas_text
   - locker_number
   - first_handler
+  - second_handler
+  - third_handler
   layers:
   - Default
   - TransparentFX
