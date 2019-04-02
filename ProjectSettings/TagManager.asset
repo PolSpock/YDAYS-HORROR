@@ -19,6 +19,8 @@ TagManager:
   - first_handler
   - second_handler
   - third_handler
+  - locker_screamer
+  - petite_fille_members
   layers:
   - Default
   - TransparentFX

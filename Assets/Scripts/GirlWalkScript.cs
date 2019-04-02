@@ -18,7 +18,7 @@ public class GirlWalkScript : MonoBehaviour
         // Move the object forward along its z axis 1 unit/second.
         if (isEnabled)
         {
-            transform.Translate(Vector3.forward * Time.deltaTime);
+            transform.Translate(Vector3.forward * (Time.deltaTime + 0.02f));
         }
        
 

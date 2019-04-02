@@ -9,7 +9,6 @@ public class FirstScreamerScript : MonoBehaviour
     public SteamVR_Action_Boolean TriggerClick;
     private SteamVR_Input_Sources inputSource;
 
-    public Camera plyCamera;
     public GameObject screamerObj_VR;
     public GameObject screamerObj_NOVR;
 
@@ -20,12 +19,23 @@ public class FirstScreamerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("SCREAMER");
+        /*
+       Debug.Log("SCREAMER");
 
-        //Instantiate(screamerObj, plyCamera.transform.position + plyCamera.transform.forward * 2.25f + plyCamera.transform.up *1 + plyCamera.transform.right * -0.10f, Quaternion.Euler(new Vector3(90, 90, 0)));
+       Animation animation = screamerObj_VR.GetComponent<Animation>();
+       animation["Take 001"].speed = 6f;
+       animation.Play("Take 001");
 
-        //Vector3 SpawnPosition = plyCamera.transform.forward * 5 + plyCamera.transform.position;
-        //Instantiate(screamerObj, SpawnPosition, Quaternion.identity);
+       animation = screamerObj_NOVR.GetComponent<Animation>();
+       animation["Take 001"].speed = 6f;
+       animation.Play("Take 001");
+
+       GameObject[] girlParts = GameObject.FindGameObjectsWithTag("locker_screamer");
+       foreach (GameObject girlPart in girlParts)
+       {
+           girlPart.GetComponent<SkinnedMeshRenderer>().enabled = true;
+       }
+       */
 
     }
 
@@ -48,13 +58,32 @@ public class FirstScreamerScript : MonoBehaviour
         {
             Debug.Log("SCREAMER");
 
-            screamerObj_VR.GetComponent<MeshRenderer>().enabled = true;
-            screamerObj_NOVR.GetComponent<MeshRenderer>().enabled = true;
+            //screamerObj_VR.GetComponent<MeshRenderer>().enabled = true;
+            //screamerObj_NOVR.GetComponent<MeshRenderer>().enabled = true;
+
+            Animation animation = screamerObj_VR.GetComponent<Animation>();
+            animation["Take 001"].speed = 6f;
+            animation.Play("Take 001");
+
+            animation = screamerObj_NOVR.GetComponent<Animation>();
+            animation["Take 001"].speed = 6f;
+            animation.Play("Take 001");
+
+            GameObject[] girlParts = GameObject.FindGameObjectsWithTag("locker_screamer");
+            foreach (GameObject girlPart in girlParts)
+            {
+                girlPart.GetComponent<SkinnedMeshRenderer>().enabled = true;
+            }
 
             StartCoroutine(NextPhase());
 
-            screamerObj_VR.GetComponent<MeshRenderer>().enabled = false;
-            screamerObj_NOVR.GetComponent<MeshRenderer>().enabled = false;
+            //screamerObj_VR.GetComponent<MeshRenderer>().enabled = false;
+            //screamerObj_NOVR.GetComponent<MeshRenderer>().enabled = false;
+
+            foreach (GameObject girlPart in girlParts)
+            {
+                girlPart.GetComponent<SkinnedMeshRenderer>().enabled = false;
+            }
 
             // On enlève le corps sur la table
             corps_ontable.GetComponent<MeshRenderer>().enabled = false;

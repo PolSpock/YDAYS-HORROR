@@ -49,11 +49,11 @@ public class SecondOpenAnimationScript : MonoBehaviour
         // Dans 5 secondes, on ferme le casier
         StartCoroutine(NextPhase());
 
+        // On joue la fermuture casier
         Animation animation = GetComponent<Animation>();
         animation["Take 002"].speed = 4.5f;
         animation.Play("Take 002");
 
-        // On joue la fermuture casier
         AudioClip clip2 = clips.FirstOrDefault(c => c.name == "fermetureCasier");
         source.clip = clip2;
         source.Play();

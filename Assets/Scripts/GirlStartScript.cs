@@ -6,20 +6,15 @@ using Valve.VR;
 public class GirlStartScript : MonoBehaviour
 {
     private bool hasClicked = false;
-    public GameObject start;
-    public GameObject[] members;
+    public GameObject GirlWalking;
     public SteamVR_Action_Boolean TriggerClick;
     private SteamVR_Input_Sources inputSource;
     
     // Start is called before the first frame update
     void Start()
     {
-        members = GameObject.FindGameObjectsWithTag("petit_fille_members");
-        foreach (GameObject member in members)
-        {
-            member.GetComponent<SkinnedMeshRenderer>().enabled = false;
-        }
-       
+        //GirlWalking.GetComponent<GirlWalkScript>().isEnabled = true;
+
     }
 
     // Update is called once per frame
@@ -39,13 +34,11 @@ public class GirlStartScript : MonoBehaviour
 
         if (hasClicked)
         {
-            members = GameObject.FindGameObjectsWithTag("petit_fille_members");
-            foreach (GameObject member in members)
-            {
-                member.GetComponent<SkinnedMeshRenderer>().enabled = true;
-            }
+            GirlWalking.GetComponent<GirlWalkScript>().isEnabled = true;
 
-            start.GetComponent<GirlWalkScript>().isEnabled = true;
+
+            Animation animation = GirlWalking.GetComponent<Animation>();
+            animation.Play("mixamo.com");
         }
 
 

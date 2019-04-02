@@ -37,16 +37,21 @@ public class BedInteractionScript : MonoBehaviour
     {
         Debug.Log("Switch Trigger");
 
-        drap_opened.GetComponent<MeshRenderer>().enabled = true;
+        if (hasClicked)
+        {
+            GetComponent<MeshRenderer>().enabled = false;
 
-        drap_closed.GetComponent<MeshRenderer>().enabled = false;
+            drap_opened.GetComponent<MeshRenderer>().enabled = true;
+
+            drap_closed.GetComponent<MeshRenderer>().enabled = false;
 
 
 
-        canvasText.text = "Elle doit surement être dans les casiers, la dernière fois elle l’a sortie du n°9...";
+            canvasText.text = "Elle doit surement être dans les casiers, la dernière fois elle l’a sortie du n°9...";
 
-        battementCoeur.loop = true;
-        battementCoeur.Play();
+            battementCoeur.loop = true;
+            battementCoeur.Play();
+        };
     }
 
 
