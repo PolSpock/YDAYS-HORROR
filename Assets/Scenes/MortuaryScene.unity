@@ -6060,25 +6060,49 @@ PrefabInstance:
       propertyPath: m_TagString
       value: locker_screamer
       objectReference: {fileID: 0}
+    - target: {fileID: 100014, guid: f0eab495560d4cb449664e8aa2027c7d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 100054, guid: f0eab495560d4cb449664e8aa2027c7d, type: 3}
       propertyPath: m_TagString
       value: locker_screamer
+      objectReference: {fileID: 0}
+    - target: {fileID: 100054, guid: f0eab495560d4cb449664e8aa2027c7d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100366, guid: f0eab495560d4cb449664e8aa2027c7d, type: 3}
       propertyPath: m_TagString
       value: locker_screamer
       objectReference: {fileID: 0}
+    - target: {fileID: 100366, guid: f0eab495560d4cb449664e8aa2027c7d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 100368, guid: f0eab495560d4cb449664e8aa2027c7d, type: 3}
       propertyPath: m_TagString
       value: locker_screamer
+      objectReference: {fileID: 0}
+    - target: {fileID: 100368, guid: f0eab495560d4cb449664e8aa2027c7d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100684, guid: f0eab495560d4cb449664e8aa2027c7d, type: 3}
       propertyPath: m_TagString
       value: locker_screamer
       objectReference: {fileID: 0}
+    - target: {fileID: 100684, guid: f0eab495560d4cb449664e8aa2027c7d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 100714, guid: f0eab495560d4cb449664e8aa2027c7d, type: 3}
       propertyPath: m_TagString
       value: locker_screamer
+      objectReference: {fileID: 0}
+    - target: {fileID: 100714, guid: f0eab495560d4cb449664e8aa2027c7d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400716, guid: f0eab495560d4cb449664e8aa2027c7d, type: 3}
       propertyPath: m_LocalPosition.x
