@@ -11,10 +11,14 @@ public class GirlCrossedHall : MonoBehaviour
 
     public Text canvasText;
 
+    public GameObject VRPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
 
+
+        VRPlayer.transform.position = new Vector3(-1.768f, -11.903f, -30.166f);
     }
 
     // Update is called once per frame
@@ -48,6 +52,14 @@ public class GirlCrossedHall : MonoBehaviour
             StartCoroutine(NextPhase());
 
             canvasText.text = "Maman... J'ai froid...";
+
+            VRPlayer.transform.position = new Vector3(-1.768f, -11.903f, -30.166f);
+
+            GameObject[] cameras = GameObject.FindGameObjectsWithTag("MainCamera");
+            foreach (GameObject camera in cameras)
+            {
+                camera.transform.rotation = Quaternion.Euler(45, 0, 0);
+            }
 
         }
     }

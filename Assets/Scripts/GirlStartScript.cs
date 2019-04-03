@@ -14,7 +14,11 @@ public class GirlStartScript : MonoBehaviour
     void Start()
     {
         //GirlWalking.GetComponent<GirlWalkScript>().isEnabled = true;
-
+        GameObject[] members = GameObject.FindGameObjectsWithTag("petite_fille_members");
+        foreach (GameObject member in members)
+        {
+            member.GetComponent<SkinnedMeshRenderer>().enabled = false;
+        }
     }
 
     // Update is called once per frame
@@ -35,7 +39,11 @@ public class GirlStartScript : MonoBehaviour
         if (hasClicked)
         {
             GirlWalking.GetComponent<GirlWalkScript>().isEnabled = true;
-
+            GameObject[] members = GameObject.FindGameObjectsWithTag("petite_fille_members");
+            foreach (GameObject member in members)
+            {
+                member.GetComponent<SkinnedMeshRenderer>().enabled = true;
+            }
 
             Animation animation = GirlWalking.GetComponent<Animation>();
             animation.Play("mixamo.com");

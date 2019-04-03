@@ -10,7 +10,6 @@ public class FirstScreamerScript : MonoBehaviour
     private SteamVR_Input_Sources inputSource;
 
     public GameObject screamerObj_VR;
-    public GameObject screamerObj_NOVR;
 
     public GameObject corps_ontable;
     public GameObject corps_drap2;
@@ -65,9 +64,11 @@ public class FirstScreamerScript : MonoBehaviour
             animation["Take 001"].speed = 6f;
             animation.Play("Take 001");
 
+            /*
             animation = screamerObj_NOVR.GetComponent<Animation>();
             animation["Take 001"].speed = 6f;
             animation.Play("Take 001");
+            */
 
             GameObject[] girlParts = GameObject.FindGameObjectsWithTag("locker_screamer");
             foreach (GameObject girlPart in girlParts)
