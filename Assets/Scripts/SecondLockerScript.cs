@@ -15,6 +15,9 @@ public class SecondLockerScript : MonoBehaviour
     public GameObject poigne_casier_deuxieme;
     public GameObject poigne_casier_troisieme;
 
+    public GameObject locker_number9;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +58,7 @@ public class SecondLockerScript : MonoBehaviour
             poigne_casier_deuxieme.GetComponent<Animator>().enabled = false;
             poigne_casier_troisieme.GetComponent<Animator>().enabled = true;
 
+            locker_number9.GetComponent<MeshRenderer>().enabled = false;
         }
     }
 

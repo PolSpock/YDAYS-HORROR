@@ -36,6 +36,8 @@ public class OpenAnimationScript : MonoBehaviour
     // L'animation d'ouverture est terminée
     public void PrintEvent()
     {
+        Debug.Log("animation terminée, OpenAnimationScript");
+
         // On lance le son sourd
         AudioClip clip = clips.FirstOrDefault(c => c.name == "bruitSourd");
         source.clip = clip;
@@ -43,6 +45,12 @@ public class OpenAnimationScript : MonoBehaviour
 
         // On éteint la lumière
         mainLight.enabled = false;
+
+        StartCoroutine(NextPhase2Seconds());
+        // On joue le bruit scintillement lumière
+        AudioClip clip2 = clips.FirstOrDefault(c => c.name == "bruitScintillementLumiere");
+        source.clip = clip2;
+        source.Play();
 
         // Dans 5 secondes, on ferme le casier
         StartCoroutine(NextPhase());
@@ -52,8 +60,8 @@ public class OpenAnimationScript : MonoBehaviour
         animation.Play("Take 002");
 
         // On joue la fermuture casier
-        AudioClip clip2 = clips.FirstOrDefault(c => c.name == "fermetureCasier");
-        source.clip = clip2;
+        AudioClip clip3 = clips.FirstOrDefault(c => c.name == "fermetureCasier");
+        source.clip = clip3;
         source.Play();
 
         // On active le chiffre 9 sur l'autre casier
@@ -67,6 +75,13 @@ public class OpenAnimationScript : MonoBehaviour
     {
         print(Time.time);
         yield return new WaitForSeconds(5);
+        print(Time.time);
+    }
+
+    IEnumerator NextPhase2Seconds()
+    {
+        print(Time.time);
+        yield return new WaitForSeconds(2);
         print(Time.time);
     }
 }
