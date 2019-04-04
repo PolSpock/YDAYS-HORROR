@@ -9,7 +9,9 @@ public class GirlStartScript : MonoBehaviour
     public GameObject GirlWalking;
     public SteamVR_Action_Boolean TriggerClick;
     private SteamVR_Input_Sources inputSource;
-    
+
+    public GameObject LightHall;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,8 +38,12 @@ public class GirlStartScript : MonoBehaviour
     {
         Debug.Log("Switch Trigger");
 
-        if (hasClicked)
-        {
+        //if (hasClicked)
+        //{
+            GetComponent<Animator>().enabled = false;
+
+            GetComponent<AudioSource>().Play();
+
             GirlWalking.GetComponent<GirlWalkScript>().isEnabled = true;
             GameObject[] members = GameObject.FindGameObjectsWithTag("petite_fille_members");
             foreach (GameObject member in members)
@@ -48,9 +54,11 @@ public class GirlStartScript : MonoBehaviour
             Animation animation = GirlWalking.GetComponent<Animation>();
             animation.Play("mixamo.com");
 
-            GetComponent<Animator>().enabled = false;
+            GirlWalking.GetComponent<AudioSource>().Play();
 
-        }
+            LightHall.GetComponent<Light>().enabled = true;
+
+        //}
 
 
     }

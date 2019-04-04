@@ -10,7 +10,7 @@ public class UseScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        RenderSettings.ambientIntensity = 1.1f;
+        RenderSettings.ambientIntensity = 1f;
 
         textDisplayingScript.DisplayTextHereFor("Bon...j’aimerai voir son visage une dernière fois, elle doit être sous ces draps...", 10, 50, 10);
     }

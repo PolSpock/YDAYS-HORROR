@@ -39,8 +39,8 @@ public class BedInteractionScript : MonoBehaviour
     {
         Debug.Log("Switch Trigger");
 
-        if (hasClicked)
-        {
+        //if (hasClicked)
+        //{
             GetComponent<MeshRenderer>().enabled = false;
 
             drap_opened.GetComponent<MeshRenderer>().enabled = true;
@@ -56,7 +56,7 @@ public class BedInteractionScript : MonoBehaviour
 
             GetComponent<MeshRenderer>().enabled = false;
             poigne_casier_premier.GetComponent<Animator>().enabled = true;
-        };
+        //};
     }
 
 

@@ -13,11 +13,11 @@ public class GirlCrossedHall : MonoBehaviour
 
     public GameObject VRPlayer;
 
+    public GameObject environment;
+
     // Start is called before the first frame update
     void Start()
     {
-
-
         VRPlayer.transform.position = new Vector3(-1.768f, -11.903f, -30.166f);
     }
 
@@ -41,6 +41,10 @@ public class GirlCrossedHall : MonoBehaviour
 
         if (col.gameObject.name == "Walking") {
 
+            col.gameObject.GetComponent<AudioSource>().Stop();
+
+            environment.GetComponent<AmbianceSoundsScript>().RunBruitDisjoncteur();
+
             light1.enabled = false;
             light2.enabled = false;
             light3.enabled = false;
@@ -51,16 +55,6 @@ public class GirlCrossedHall : MonoBehaviour
 
             StartCoroutine(NextPhase());
 
-            canvasText.text = "Maman... J'ai froid...";
-
-            VRPlayer.transform.position = new Vector3(-1.768f, -11.903f, -30.166f);
-
-            GameObject[] cameras = GameObject.FindGameObjectsWithTag("MainCamera");
-            foreach (GameObject camera in cameras)
-            {
-                camera.transform.rotation = Quaternion.Euler(45, 0, 0);
-            }
-
         }
     }
 
@@ -69,6 +63,18 @@ public class GirlCrossedHall : MonoBehaviour
         print(Time.time);
         yield return new WaitForSeconds(2);
         print(Time.time);
+
+        VRPlayer.GetComponent<SoundsOnPlayerScript>().RunMamanFroidSound();
+
+        canvasText.text = "Maman... J'ai froid...";
+
+        VRPlayer.transform.position = new Vector3(-1.768f, -11.903f, -30.166f);
+
+        GameObject[] cameras = GameObject.FindGameObjectsWithTag("MainCamera");
+        foreach (GameObject camera in cameras)
+        {
+            camera.transform.rotation = Quaternion.Euler(45, 0, 0);
+        }
     }
 
 }

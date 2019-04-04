@@ -15,9 +15,6 @@ public class SecondLockerScript : MonoBehaviour
     public GameObject poigne_casier_deuxieme;
     public GameObject poigne_casier_troisieme;
 
-    public GameObject locker_number9;
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -40,8 +37,8 @@ public class SecondLockerScript : MonoBehaviour
     {
         Debug.Log("Switch Trigger");
 
-        if (activate && hasClicked)
-        {
+        //if (activate && hasClicked)
+        //{
             Animation animation = locker.GetComponent<Animation>();
             animation["Take 001"].speed = 2f;
             animation.Play("Take 001");
@@ -50,26 +47,25 @@ public class SecondLockerScript : MonoBehaviour
             audioSource.Play();
 
             StartCoroutine(NextPhase());
-
-            // On déssaffiche la poignée après 2s
-            GameObject firstHandler = GameObject.FindGameObjectWithTag("second_handler");
-            firstHandler.GetComponent<MeshRenderer>().enabled = false;
-
-            poigne_casier_deuxieme.GetComponent<Animator>().enabled = false;
-            poigne_casier_troisieme.GetComponent<Animator>().enabled = true;
-
-            locker_number9.GetComponent<MeshRenderer>().enabled = false;
-        }
+        //}
     }
 
     IEnumerator NextPhase()
     {
         print(Time.time);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSecondsRealtime(5);
         print(Time.time);
+
+        // On déssaffiche la poignée après 5s
+        poigne_casier_deuxieme.GetComponent<MeshRenderer>().enabled = false;
+        poigne_casier_deuxieme.GetComponent<Animator>().enabled = false;
+        poigne_casier_deuxieme.SetActive(false);
+
+        poigne_casier_troisieme.GetComponent<Animator>().enabled = true;
+        poigne_casier_troisieme.GetComponent<MeshRenderer>().enabled = true;
     }
 
-private void OnEnable()
+    private void OnEnable()
     {
         TriggerClick.AddOnStateDownListener(Press, inputSource);
     }

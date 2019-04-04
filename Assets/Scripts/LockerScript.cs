@@ -12,8 +12,8 @@ public class LockerScript : MonoBehaviour
 
     public GameObject poigne_casier_premier;
     public GameObject poigne_casier_deuxieme;
+    public GameObject poigne_casier_troisieme;
 
-    public GameObject locker_number9;
 
     // Start is called before the first frame update
     void Start()
@@ -37,44 +37,42 @@ public class LockerScript : MonoBehaviour
     {
         Debug.Log("Switch Trigger");
 
-        if (hasClicked)
-        {
+        //if (hasClicked)
+        //{
             Animation animation = locker.GetComponent<Animation>();
-            animation["Take 001"].speed = 2f;
+            animation["Take 001"].speed = 2.5f;
             animation.Play("Take 001");
 
             AudioSource audioSource = locker.GetComponent<AudioSource>();
             audioSource.Play();
 
-            // On retire les poignées & chiffres de tous les autres objets
-            GameObject[] lockersNumber = GameObject.FindGameObjectsWithTag("locker_number");
-
-            foreach(GameObject lockerNumber in lockersNumber)
-            {
-                lockerNumber.GetComponent<MeshRenderer>().enabled = false;
-            }
-
             StartCoroutine(NextPhase());
 
-            // On déssaffiche la poignée après 2s
-            GameObject firstHandler = GameObject.FindGameObjectWithTag("first_handler");
-            firstHandler.GetComponent<MeshRenderer>().enabled = false;
-
-            poigne_casier_premier.GetComponent<Animator>().enabled = false;
-            poigne_casier_deuxieme.GetComponent<Animator>().enabled = true;
-
-            locker_number9.GetComponent<MeshRenderer>().enabled = false;
-        }
+            
+        //}
     }
 
     IEnumerator NextPhase()
     {
         print(Time.time);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSecondsRealtime(3f);
         print(Time.time);
+
+        // On déssaffiche la poignée après 2s
+        GameObject firstHandler = GameObject.FindGameObjectWithTag("first_handler");
+        firstHandler.GetComponent<MeshRenderer>().enabled = false;
+
+        poigne_casier_premier.GetComponent<Animator>().enabled = false;
+        poigne_casier_premier.GetComponent<MeshRenderer>().enabled = false;
+        poigne_casier_premier.SetActive(false);
+
+        poigne_casier_deuxieme.GetComponent<Animator>().enabled = true;
+
+        poigne_casier_troisieme.GetComponent<MeshRenderer>().enabled = false;
+
     }
 
-private void OnEnable()
+    private void OnEnable()
     {
         TriggerClick.AddOnStateDownListener(Press, inputSource);
     }
@@ -86,22 +84,12 @@ private void OnEnable()
 
     private void Press(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
     {
-        Debug.Log("Pressed");
-        Debug.Log(fromAction.state);
-        Debug.Log(fromSource);
         hasClicked = true;
-
-        Debug.Log("----- end -----");
     }
 
     private void Unpress(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
     {
-        Debug.Log("Unpressed");
-        Debug.Log(fromAction.state);
-        Debug.Log(fromSource);
         hasClicked = false;
-
-        Debug.Log("----- end -----");
     }
 
 

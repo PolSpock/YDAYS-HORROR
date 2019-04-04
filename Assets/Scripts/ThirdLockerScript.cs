@@ -13,7 +13,8 @@ public class ThirdLockerScript : MonoBehaviour
     public bool activate = false;
 
     public GameObject poigne_casier_troisieme;
-    public GameObject poigne_porte;
+
+    public GameObject envrionment;
 
     // Start is called before the first frame update
     void Start()
@@ -37,8 +38,8 @@ public class ThirdLockerScript : MonoBehaviour
     {
         Debug.Log("Switch Trigger");
 
-        if (activate && hasClicked)
-        {
+        //if (activate && hasClicked)
+        //{
             Animation animation = locker.GetComponent<Animation>();
             animation["Take 001"].speed = 2f;
             animation.Play("Take 001");
@@ -47,24 +48,24 @@ public class ThirdLockerScript : MonoBehaviour
             audioSource.Play();
 
             StartCoroutine(NextPhase());
-
-            // On déssaffiche la poignée après 2s
-            GameObject firstHandler = GameObject.FindGameObjectWithTag("third_handler");
-            firstHandler.GetComponent<MeshRenderer>().enabled = false;
-
-            poigne_casier_troisieme.GetComponent<Animator>().enabled = false;
-            poigne_porte.GetComponent<Animator>().enabled = true;
-        }
+        //}
     }
 
     IEnumerator NextPhase()
     {
         print(Time.time);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(5);
         print(Time.time);
+
+        // On déssaffiche la poignée après 5s
+        poigne_casier_troisieme.GetComponent<Animator>().enabled = false;
+
+        envrionment.GetComponent<AmbianceSoundsScript>().RunMusiqueAmbiancePesante();
+
+        GetComponent<GameObject>().SetActive(false);
     }
 
-private void OnEnable()
+    private void OnEnable()
     {
         TriggerClick.AddOnStateDownListener(Press, inputSource);
     }
@@ -76,22 +77,13 @@ private void OnEnable()
 
     private void Press(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
     {
-        Debug.Log("Pressed");
-        Debug.Log(fromAction.state);
-        Debug.Log(fromSource);
         hasClicked = true;
 
-        Debug.Log("----- end -----");
     }
 
     private void Unpress(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
     {
-        Debug.Log("Unpressed");
-        Debug.Log(fromAction.state);
-        Debug.Log(fromSource);
         hasClicked = false;
-
-        Debug.Log("----- end -----");
     }
 
 
