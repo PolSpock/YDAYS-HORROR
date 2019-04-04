@@ -15,6 +15,8 @@ public class FirstScreamerScript : MonoBehaviour
     public GameObject corps_drap2;
     public GameObject corps_drap3;
 
+    public GameObject locker_3;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,21 +72,25 @@ public class FirstScreamerScript : MonoBehaviour
             animation.Play("Take 001");
             */
 
+            /*
             GameObject[] girlParts = GameObject.FindGameObjectsWithTag("locker_screamer");
             foreach (GameObject girlPart in girlParts)
             {
                 girlPart.GetComponent<SkinnedMeshRenderer>().enabled = true;
             }
+            */
 
             StartCoroutine(NextPhase());
 
             //screamerObj_VR.GetComponent<MeshRenderer>().enabled = false;
             //screamerObj_NOVR.GetComponent<MeshRenderer>().enabled = false;
 
+            /*
             foreach (GameObject girlPart in girlParts)
             {
                 girlPart.GetComponent<SkinnedMeshRenderer>().enabled = false;
             }
+            */
 
             // On enlève le corps sur la table
             corps_ontable.GetComponent<MeshRenderer>().enabled = false;
@@ -92,6 +98,13 @@ public class FirstScreamerScript : MonoBehaviour
 
             // On affiche le drap
             corps_drap3.GetComponent<MeshRenderer>().enabled = true;
+
+
+            // On joue la fermuture casier
+            Animation animation_locker3 = locker_3.GetComponent<Animation>();
+            animation_locker3["Take 002"].speed = 4.5f;
+            animation_locker3.Play("Take 002");
+
 
         }
     }

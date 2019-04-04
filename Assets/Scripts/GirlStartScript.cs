@@ -47,6 +47,9 @@ public class GirlStartScript : MonoBehaviour
 
             Animation animation = GirlWalking.GetComponent<Animation>();
             animation.Play("mixamo.com");
+
+            GetComponent<Animator>().enabled = false;
+
         }
 
 

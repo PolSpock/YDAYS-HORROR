@@ -10,6 +10,10 @@ public class LockerScript : MonoBehaviour
     public SteamVR_Action_Boolean TriggerClick;
     private SteamVR_Input_Sources inputSource;
 
+    public GameObject poigne_casier_premier;
+    public GameObject poigne_casier_deuxieme;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +59,8 @@ public class LockerScript : MonoBehaviour
             GameObject firstHandler = GameObject.FindGameObjectWithTag("first_handler");
             firstHandler.GetComponent<MeshRenderer>().enabled = false;
 
+            poigne_casier_premier.GetComponent<Animator>().enabled = false;
+            poigne_casier_deuxieme.GetComponent<Animator>().enabled = true;
         }
     }
 

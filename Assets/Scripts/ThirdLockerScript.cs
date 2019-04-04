@@ -12,6 +12,9 @@ public class ThirdLockerScript : MonoBehaviour
 
     public bool activate = false;
 
+    public GameObject poigne_casier_troisieme;
+    public GameObject poigne_porte;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +52,8 @@ public class ThirdLockerScript : MonoBehaviour
             GameObject firstHandler = GameObject.FindGameObjectWithTag("third_handler");
             firstHandler.GetComponent<MeshRenderer>().enabled = false;
 
+            poigne_casier_troisieme.GetComponent<Animator>().enabled = false;
+            poigne_porte.GetComponent<Animator>().enabled = true;
         }
     }
 

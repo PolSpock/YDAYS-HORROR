@@ -16,6 +16,8 @@ public class BedInteractionScript : MonoBehaviour
 
     public Text canvasText;
 
+    public GameObject poigne_casier_premier;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +53,9 @@ public class BedInteractionScript : MonoBehaviour
 
             battementCoeur.loop = true;
             battementCoeur.Play();
+
+            GetComponent<MeshRenderer>().enabled = false;
+            poigne_casier_premier.GetComponent<Animator>().enabled = true;
         };
     }
 

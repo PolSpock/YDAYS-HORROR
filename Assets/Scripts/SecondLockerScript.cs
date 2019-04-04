@@ -12,6 +12,9 @@ public class SecondLockerScript : MonoBehaviour
 
     public bool activate = false;
 
+    public GameObject poigne_casier_deuxieme;
+    public GameObject poigne_casier_troisieme;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +51,9 @@ public class SecondLockerScript : MonoBehaviour
             // On déssaffiche la poignée après 2s
             GameObject firstHandler = GameObject.FindGameObjectWithTag("second_handler");
             firstHandler.GetComponent<MeshRenderer>().enabled = false;
+
+            poigne_casier_deuxieme.GetComponent<Animator>().enabled = false;
+            poigne_casier_troisieme.GetComponent<Animator>().enabled = true;
 
         }
     }
