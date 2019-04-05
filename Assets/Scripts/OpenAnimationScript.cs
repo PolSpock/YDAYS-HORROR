@@ -78,11 +78,6 @@ public class OpenAnimationScript : MonoBehaviour
         yield return new WaitForSecondsRealtime(7);
         print(Time.time);
 
-        // On rallume la lumière
-        mainLight.enabled = true;
-        RenderSettings.ambientIntensity = 1f;
-        openAnimationLight.GetComponent<Light>().enabled = false;
-
         Animation animation = GetComponent<Animation>();
         animation["Take 002"].speed = 3.5f;
         animation.Play("Take 002");
@@ -98,6 +93,20 @@ public class OpenAnimationScript : MonoBehaviour
 
         // On active les intéractions de l'autre casier
         handler_Locker6.GetComponent<SecondLockerScript>().activate = true;
+
+        StartCoroutine(NextLightPhase());
+    }
+
+    IEnumerator NextLightPhase()
+    {
+        print(Time.time);
+        yield return new WaitForSecondsRealtime(1.5f);
+        print(Time.time);
+
+        // On rallume la lumière
+        mainLight.enabled = true;
+        RenderSettings.ambientIntensity = 1f;
+        openAnimationLight.GetComponent<Light>().enabled = false;
     }
 
 }

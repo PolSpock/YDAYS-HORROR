@@ -39,6 +39,7 @@ public class SoundsOnPlayerScript : MonoBehaviour
     {
         // On lance le 
         AudioClip clip = clips.FirstOrDefault(c => c.name == "mamanFroid");
+        source.loop = false;
         source.clip = clip;
         source.Play();
         source.PlayOneShot(clip);
@@ -48,6 +49,7 @@ public class SoundsOnPlayerScript : MonoBehaviour
     {
         // On lance le 
         AudioClip clip = clips.FirstOrDefault(c => c.name == "maman");
+        source.loop = false;
         source.clip = clip;
         source.Play();
         source.PlayOneShot(clip);

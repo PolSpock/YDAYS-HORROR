@@ -88,15 +88,25 @@ public class SecondOpenAnimationScript : MonoBehaviour
         source.Play();
         source.PlayOneShot(clip2);
 
-        // On rallume la lumière
-        mainLight.enabled = true;
-        RenderSettings.ambientIntensity = 1f;
-        openAnimationLight.GetComponent<Light>().enabled = false;
-
         // On active le chiffre 9 sur l'autre casier
         numberNine_Locker3.GetComponent<MeshRenderer>().enabled = true;
 
         // On active les intéractions de l'autre casier
         handler_Locker3.GetComponent<ThirdLockerScript>().activate = true;
+
+        StartCoroutine(NextLightPhase());
+
+    }
+
+    IEnumerator NextLightPhase()
+    {
+        print(Time.time);
+        yield return new WaitForSecondsRealtime(1.5f);
+        print(Time.time);
+
+        // On rallume la lumière
+        mainLight.enabled = true;
+        RenderSettings.ambientIntensity = 1f;
+        openAnimationLight.GetComponent<Light>().enabled = false;
     }
 }

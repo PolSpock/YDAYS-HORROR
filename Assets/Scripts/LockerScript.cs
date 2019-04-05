@@ -55,7 +55,7 @@ public class LockerScript : MonoBehaviour
     IEnumerator NextPhase()
     {
         print(Time.time);
-        yield return new WaitForSecondsRealtime(3f);
+        yield return new WaitForSecondsRealtime(5f);
         print(Time.time);
 
         // On déssaffiche la poignée après 2s

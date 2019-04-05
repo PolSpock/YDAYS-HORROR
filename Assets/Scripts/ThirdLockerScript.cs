@@ -62,7 +62,7 @@ public class ThirdLockerScript : MonoBehaviour
 
         envrionment.GetComponent<AmbianceSoundsScript>().RunMusiqueAmbiancePesante();
 
-        GetComponent<GameObject>().SetActive(false);
+        gameObject.SetActive(false);
     }
 
     private void OnEnable()

@@ -15,6 +15,8 @@ public class GirlCrossedHall : MonoBehaviour
 
     public GameObject environment;
 
+    public GameObject tableNextScreamer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +41,8 @@ public class GirlCrossedHall : MonoBehaviour
     {
         Debug.Log("Switch Trigger");
 
-        if (col.gameObject.name == "Walking") {
+        if (col.gameObject.name == "Walking")
+        {
 
             col.gameObject.GetComponent<AudioSource>().Stop();
 
@@ -75,6 +78,18 @@ public class GirlCrossedHall : MonoBehaviour
         {
             camera.transform.rotation = Quaternion.Euler(45, 0, 0);
         }
+
+
+        StartCoroutine(NextNextPhase());
+
     }
 
+    private IEnumerator NextNextPhase()
+    {
+        print(Time.time);
+        yield return new WaitForSeconds(13f);
+        print(Time.time);
+
+        tableNextScreamer.GetComponent<SecondScreamerScript>().StartSecondScreamerScript();
+    }
 }
