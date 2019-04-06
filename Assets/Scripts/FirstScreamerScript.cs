@@ -49,6 +49,13 @@ public class FirstScreamerScript : MonoBehaviour
        }
        */
 
+        // On désaffiche le sang
+        GameObject[] bloods = GameObject.FindGameObjectsWithTag("bloods");
+        foreach (GameObject blood in bloods)
+        {
+            blood.GetComponent<MeshRenderer>().enabled = false;
+        }
+
     }
 
     // Update is called once per frame
@@ -172,6 +179,13 @@ public class FirstScreamerScript : MonoBehaviour
         // On affiche le drap
         corps_drap3.GetComponent<MeshRenderer>().enabled = true;
 
+        // On affiche le sang
+        GameObject[] bloods = GameObject.FindGameObjectsWithTag("bloods");
+        foreach (GameObject blood in bloods)
+        {
+            blood.GetComponent<MeshRenderer>().enabled = true;
+        }
+
         StartCoroutine(EndEndPhase());
     }
 
@@ -193,6 +207,7 @@ public class FirstScreamerScript : MonoBehaviour
         yield return new WaitForSecondsRealtime(2f);
         print(Time.time);
 
+        handlePorte.GetComponent<Animator>().enabled = true;
         handlePorte.GetComponent<AudioSource>().Play();
 
         mainLight.enabled = true;
@@ -201,7 +216,7 @@ public class FirstScreamerScript : MonoBehaviour
     }
 
 
-        private void OnEnable()
+    private void OnEnable()
     {
         TriggerClick.AddOnStateDownListener(Press, inputSource);
     }

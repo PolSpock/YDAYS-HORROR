@@ -23,6 +23,7 @@ TagManager:
   - petite_fille_members
   - second_screamer
   - boite_musique
+  - bloods
   layers:
   - Default
   - TransparentFX

@@ -6,12 +6,14 @@ public class SecondScreamerScript : MonoBehaviour
 {
     public GameObject boiteMusique;
     public GameObject VRPlayer;
-    public GameObject screamer;
+    public GameObject noVr_screamer;
+    public GameObject vr_screamer;
+
+    public Light mainLight;
 
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -31,19 +33,34 @@ public class SecondScreamerScript : MonoBehaviour
             morceau.GetComponent<MeshRenderer>().enabled = true;
         }
 
-        // On joue la musique
-        AudioSource audioSource = boiteMusique.GetComponent<AudioSource>();
-        audioSource.time = 59f;
-        audioSource.Play();
-        audioSource.SetScheduledEndTime(AudioSettings.dspTime + (76f - 59f));
-
         StartCoroutine(NextPhase());
     }
 
     private IEnumerator NextPhase()
     {
         print(Time.time);
-        yield return new WaitForSeconds(12f);
+        yield return new WaitForSeconds(1f);
+        print(Time.time);
+
+        // On joue l'animation
+        Animation animation = boiteMusique.GetComponent<Animation>();
+        animation.Play("Take 001");
+
+        // On joue la musique
+        AudioSource audioSource = boiteMusique.GetComponent<AudioSource>();
+        audioSource.time = 59f;
+        audioSource.Play();
+        audioSource.SetScheduledEndTime(AudioSettings.dspTime + (76f - 59f));
+
+        mainLight.enabled = true;
+
+        StartCoroutine(NextNextPhase());
+    }
+
+    private IEnumerator NextNextPhase()
+    {
+        print(Time.time);
+        yield return new WaitForSeconds(11f);
         print(Time.time);
 
         VRPlayer.GetComponent<SoundsOnPlayerScript>().RunMamanSound();
@@ -55,8 +72,25 @@ public class SecondScreamerScript : MonoBehaviour
             girlPart.GetComponent<SkinnedMeshRenderer>().enabled = true;
         }
 
-        Animation animation = screamer.GetComponent<Animation>();
+        Animation animation = noVr_screamer.GetComponent<Animation>();
         animation["Take 001"].speed = 1.5f;
         animation.Play("Take 001");
+
+        animation = vr_screamer.GetComponent<Animation>();
+        animation["Take 001"].speed = 1.5f;
+        animation.Play("Take 001");
+
+        StartCoroutine(NextNextNextPhase());
     }
+
+    private IEnumerator NextNextNextPhase()
+    {
+        print(Time.time);
+        yield return new WaitForSeconds(4f);
+        print(Time.time);
+
+        noVr_screamer.GetComponent<AudioSource>().Play();
+        vr_screamer.GetComponent<AudioSource>().Play();
+    }
+
 }
