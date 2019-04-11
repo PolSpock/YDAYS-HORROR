@@ -52,6 +52,7 @@ public class BedInteractionScript : MonoBehaviour
 
 
             canvasText.text = "Elle doit surement être dans les casiers, la dernière fois elle l’a sortie du n°9...";
+            canvasText.GetComponent<Animator>().Play("Subtitle", -1, 0f);
 
             battementCoeur.loop = true;
             battementCoeur.Play();

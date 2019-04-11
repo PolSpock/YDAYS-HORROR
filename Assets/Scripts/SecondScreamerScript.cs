@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SecondScreamerScript : MonoBehaviour
 {
@@ -9,7 +10,11 @@ public class SecondScreamerScript : MonoBehaviour
     public GameObject noVr_screamer;
     public GameObject vr_screamer;
 
+    public Text text;
+
     public Light mainLight;
+
+    public Image panelImage;
 
     // Start is called before the first frame update
     void Start()
@@ -91,6 +96,22 @@ public class SecondScreamerScript : MonoBehaviour
 
         noVr_screamer.GetComponent<AudioSource>().Play();
         vr_screamer.GetComponent<AudioSource>().Play();
+
+        StartCoroutine(NextNextNextNextPhase());
+    }
+
+    private IEnumerator NextNextNextNextPhase()
+    {
+        print(Time.time);
+        yield return new WaitForSeconds(7f);
+        print(Time.time);
+
+        panelImage.enabled = true;
+
+        text.text = "Fin de simulation du meurtre de Mme Rhodes\nCause : Paranormal";
+        text.GetComponent<Animator>().Play("Subtitle", -1, 0f);
+
+
     }
 
 }
