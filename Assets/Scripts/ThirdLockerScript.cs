@@ -11,10 +11,13 @@ public class ThirdLockerScript : MonoBehaviour
     private SteamVR_Input_Sources inputSource;
 
     public bool activate = false;
+    private bool hasBeenActivated = false;
 
     public GameObject poigne_casier_troisieme;
 
     public GameObject envrionment;
+
+    public GameObject firstScreamerScript;
 
     // Start is called before the first frame update
     void Start()
@@ -38,8 +41,8 @@ public class ThirdLockerScript : MonoBehaviour
     {
         Debug.Log("Switch Trigger");
 
-        //if (activate && hasClicked)
-        //{
+        if (activate && hasClicked && !hasBeenActivated)
+        {
             Animation animation = locker.GetComponent<Animation>();
             animation["Take 001"].speed = 2f;
             animation.Play("Take 001");
@@ -47,8 +50,12 @@ public class ThirdLockerScript : MonoBehaviour
             AudioSource audioSource = locker.GetComponent<AudioSource>();
             audioSource.Play();
 
+            hasBeenActivated = true;
+
+            firstScreamerScript.GetComponent<FirstScreamerScript>().activate = true;
+
             StartCoroutine(NextPhase());
-        //}
+        }
     }
 
     IEnumerator NextPhase()

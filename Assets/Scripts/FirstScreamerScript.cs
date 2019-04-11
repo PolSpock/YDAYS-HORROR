@@ -8,6 +8,10 @@ using Valve.VR;
 public class FirstScreamerScript : MonoBehaviour
 {
     private bool hasClicked = false;
+
+    public bool activate = false;
+    private bool hasBeenActivated = false;
+
     public SteamVR_Action_Boolean TriggerClick;
     private SteamVR_Input_Sources inputSource;
 
@@ -75,8 +79,8 @@ public class FirstScreamerScript : MonoBehaviour
     {
         Debug.Log("Switch Trigger");
 
-        //if (hasClicked)
-        //{
+        if (hasClicked && activate  && !hasBeenActivated)
+        {
             Debug.Log("SCREAMER");
 
             //screamerObj_VR.GetComponent<MeshRenderer>().enabled = true;
@@ -94,6 +98,8 @@ public class FirstScreamerScript : MonoBehaviour
             poigne_3.SetActive(false);
 
             //player.GetComponent<SoundsOnPlayerScript>().RunSlowToFastHeartSound();
+
+            hasBeenActivated = true;
 
             StartCoroutine(NextPhase());
 
@@ -130,7 +136,7 @@ public class FirstScreamerScript : MonoBehaviour
             //animation_locker3.Play("Take 002");
 
 
-            //}
+        }
     }
 
     IEnumerator NextPhase()
@@ -213,6 +219,8 @@ public class FirstScreamerScript : MonoBehaviour
         mainLight.enabled = true;
         RenderSettings.ambientIntensity = 1f;
         openAnimationLight.GetComponent<Light>().enabled = false;
+
+        handlePorte.GetComponent<GirlStartScript>().activate = true;
     }
 
 

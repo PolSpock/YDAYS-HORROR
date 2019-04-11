@@ -6,6 +6,9 @@ using Valve.VR;
 public class GirlStartScript : MonoBehaviour
 {
     private bool hasClicked = false;
+    public bool activate = false;
+    private bool hasBeenActivated = false;
+
     public GameObject GirlWalking;
     public SteamVR_Action_Boolean TriggerClick;
     private SteamVR_Input_Sources inputSource;
@@ -38,8 +41,8 @@ public class GirlStartScript : MonoBehaviour
     {
         Debug.Log("Switch Trigger");
 
-        //if (hasClicked)
-        //{
+        if (hasClicked && activate && !hasBeenActivated)
+        {
             GetComponent<Animator>().enabled = false;
 
             GetComponent<AudioSource>().Play();
@@ -58,7 +61,9 @@ public class GirlStartScript : MonoBehaviour
 
             LightHall.GetComponent<Light>().enabled = true;
 
-        //}
+            hasBeenActivated = true;
+
+        }
 
 
     }
