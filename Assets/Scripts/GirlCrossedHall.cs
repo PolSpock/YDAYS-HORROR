@@ -17,10 +17,17 @@ public class GirlCrossedHall : MonoBehaviour
 
     public GameObject tableNextScreamer;
 
+    public GameObject newPositionPlayer;
+
+    //public GameObject VRPlayerCamera;
+
     // Start is called before the first frame update
     void Start()
     {
-        VRPlayer.transform.position = new Vector3(-1.768f, -11.903f, -30.166f);
+        //VRPlayer.transform.position = new Vector3(-1.768f, -11.903f, -30.166f);
+
+        //VRPlayer.transform.position = newPositionPlayer.transform.position;
+        //VRPlayer.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
     // Update is called once per frame
@@ -69,9 +76,9 @@ public class GirlCrossedHall : MonoBehaviour
 
         VRPlayer.GetComponent<SoundsOnPlayerScript>().RunMamanFroidSound();
 
-        canvasText.text = "Maman... J'ai froid...";
+        //canvasText.text = "Maman... J'ai froid...";
 
-        VRPlayer.transform.position = new Vector3(-1.768f, -11.903f, -30.166f);
+        //VRPlayer.transform.position = new Vector3(-1.768f, -11.903f, -30.166f);
 
         GameObject[] cameras = GameObject.FindGameObjectsWithTag("MainCamera");
         foreach (GameObject camera in cameras)
@@ -89,6 +96,12 @@ public class GirlCrossedHall : MonoBehaviour
         print(Time.time);
         yield return new WaitForSeconds(13f);
         print(Time.time);
+
+        // Pour le TP du joueur on fait un flash noir
+        //RenderSettings.ambientIntensity = 0.1f;
+
+        //VRPlayer.transform.position = newPositionPlayer.transform.position;
+        //VRPlayer.transform.rotation = Quaternion.Euler(0, 180, 0);
 
         tableNextScreamer.GetComponent<SecondScreamerScript>().StartSecondScreamerScript();
     }

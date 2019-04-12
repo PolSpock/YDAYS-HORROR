@@ -31,6 +31,9 @@ public class SecondScreamerScript : MonoBehaviour
     {
         Debug.Log("SECOND SCREAMER");
 
+        // On remet la sombritude moins forte
+        //RenderSettings.ambientIntensity = 0.45f;
+
         // On affiche la boite à musique
         GameObject[] morceauxBoiteMusique = GameObject.FindGameObjectsWithTag("boite_musique");
         foreach (GameObject morceau in morceauxBoiteMusique)
@@ -85,6 +88,8 @@ public class SecondScreamerScript : MonoBehaviour
         animation["Take 001"].speed = 1.5f;
         animation.Play("Take 001");
 
+        //newVR_Screamer.transform.rotation = Quaternion.Euler(VRPlayer.transform.rotation.y, -90, 0);
+
         StartCoroutine(NextNextNextPhase());
     }
 
@@ -103,13 +108,21 @@ public class SecondScreamerScript : MonoBehaviour
     private IEnumerator NextNextNextNextPhase()
     {
         print(Time.time);
-        yield return new WaitForSeconds(7f);
+        yield return new WaitForSeconds(5f);
         print(Time.time);
 
         panelImage.enabled = true;
 
+        GameObject[] girlParts = GameObject.FindGameObjectsWithTag("second_screamer");
+        foreach (GameObject girlPart in girlParts)
+        {
+            girlPart.GetComponent<SkinnedMeshRenderer>().enabled = false;
+        }
+
         text.text = "Fin de simulation du meurtre de Mme Rhodes\nCause : Paranormal";
         text.GetComponent<Animator>().Play("Subtitle", -1, 0f);
+
+
 
 
     }
