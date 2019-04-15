@@ -7,6 +7,8 @@ using Valve.VR;
 public class BedInteractionScript : MonoBehaviour
 {
     private bool hasClicked = false;
+    private bool hasBeenActivated = false;
+
     public GameObject drap_closed;
     public GameObject drap_opened;
     public SteamVR_Action_Boolean TriggerClick;
@@ -39,8 +41,8 @@ public class BedInteractionScript : MonoBehaviour
     {
         Debug.Log("Switch Trigger");
 
-        //if (hasClicked)
-        //{
+        if (hasClicked && !hasBeenActivated)
+        {
             GetComponent<MeshRenderer>().enabled = false;
 
             drap_opened.GetComponent<MeshRenderer>().enabled = true;
@@ -50,13 +52,16 @@ public class BedInteractionScript : MonoBehaviour
 
 
             canvasText.text = "Elle doit surement être dans les casiers, la dernière fois elle l’a sortie du n°9...";
+            canvasText.GetComponent<Animator>().Play("Subtitle", -1, 0f);
 
             battementCoeur.loop = true;
             battementCoeur.Play();
 
             GetComponent<MeshRenderer>().enabled = false;
             poigne_casier_premier.GetComponent<Animator>().enabled = true;
-        //};
+
+            hasBeenActivated = true;
+        };
     }
 
 

@@ -7,6 +7,8 @@ public class LockerScript : MonoBehaviour
 {
     public GameObject locker;
     private bool hasClicked = false;
+    private bool hasBeenActivated = false;
+
     public SteamVR_Action_Boolean TriggerClick;
     private SteamVR_Input_Sources inputSource;
 
@@ -37,8 +39,8 @@ public class LockerScript : MonoBehaviour
     {
         Debug.Log("Switch Trigger");
 
-        //if (hasClicked)
-        //{
+        if (hasClicked && !hasBeenActivated)
+        {
             Animation animation = locker.GetComponent<Animation>();
             animation["Take 001"].speed = 2.5f;
             animation.Play("Take 001");
@@ -46,10 +48,10 @@ public class LockerScript : MonoBehaviour
             AudioSource audioSource = locker.GetComponent<AudioSource>();
             audioSource.Play();
 
-            StartCoroutine(NextPhase());
+            hasBeenActivated = true;
 
-            
-        //}
+            StartCoroutine(NextPhase());
+        }
     }
 
     IEnumerator NextPhase()

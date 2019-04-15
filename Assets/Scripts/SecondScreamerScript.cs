@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SecondScreamerScript : MonoBehaviour
 {
@@ -9,7 +10,11 @@ public class SecondScreamerScript : MonoBehaviour
     public GameObject noVr_screamer;
     public GameObject vr_screamer;
 
+    public Text text;
+
     public Light mainLight;
+
+    public Image panelImage;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +30,9 @@ public class SecondScreamerScript : MonoBehaviour
     public void StartSecondScreamerScript()
     {
         Debug.Log("SECOND SCREAMER");
+
+        // On remet la sombritude moins forte
+        //RenderSettings.ambientIntensity = 0.45f;
 
         // On affiche la boite à musique
         GameObject[] morceauxBoiteMusique = GameObject.FindGameObjectsWithTag("boite_musique");
@@ -80,6 +88,8 @@ public class SecondScreamerScript : MonoBehaviour
         animation["Take 001"].speed = 1.5f;
         animation.Play("Take 001");
 
+        //newVR_Screamer.transform.rotation = Quaternion.Euler(VRPlayer.transform.rotation.y, -90, 0);
+
         StartCoroutine(NextNextNextPhase());
     }
 
@@ -91,6 +101,30 @@ public class SecondScreamerScript : MonoBehaviour
 
         noVr_screamer.GetComponent<AudioSource>().Play();
         vr_screamer.GetComponent<AudioSource>().Play();
+
+        StartCoroutine(NextNextNextNextPhase());
+    }
+
+    private IEnumerator NextNextNextNextPhase()
+    {
+        print(Time.time);
+        yield return new WaitForSeconds(5f);
+        print(Time.time);
+
+        panelImage.enabled = true;
+
+        GameObject[] girlParts = GameObject.FindGameObjectsWithTag("second_screamer");
+        foreach (GameObject girlPart in girlParts)
+        {
+            girlPart.GetComponent<SkinnedMeshRenderer>().enabled = false;
+        }
+
+        text.text = "Fin de simulation du meurtre de Mme Rhodes\nCause : Paranormal";
+        text.GetComponent<Animator>().Play("Subtitle", -1, 0f);
+
+
+
+
     }
 
 }
